@@ -1,23 +1,8 @@
 import { Component } from '@angular/core';
 
 export class Hero {
-  private id: number;
-  private name: string;
-
-  public setId(id: number) {
-    this.id = id;
-  }
-  public setName(name: string) {
-    this.name = name;
-  }
-
-  public getName() {
-    return this.name;
-  }
-
-  public getId() {
-    return this.id;
-  }
+  id: number;
+  name: string;
 }
 
 @Component({
@@ -29,7 +14,7 @@ export class Hero {
       <div><label> id: </label> {{hero.id}} </div>
       <div>
         <label> name: </label>
-        <input [(ngModel)]="hero.setName(name)" placeholder="name">
+        <input [(ngModel)]="hero.name" placeholder="name">
       </div>
     </div>
   `,
@@ -37,12 +22,9 @@ export class Hero {
 })
 
 export class AppComponent {
-  title = 'Tour of GHeroes';
-  hero : Hero;
-
-  cunstructor() {
-    this.hero = new Hero();
-    this.hero.setId(1);
-    this.hero.setName("Super hero");
-  }
+  public title = 'Tour of GHeroes';
+  public hero: Hero = {
+    id: 1,
+    name: 'Windstorm'
+  };
 }
