@@ -1,31 +1,48 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 
 export class Hero {
-  id: number;
-  name: string;
+  private id: number;
+  private name: string;
+
+  public setId(id: number) {
+    this.id = id;
+  }
+  public setName(name: string) {
+    this.name = name;
+  }
+
+  public getName() {
+    return this.name;
+  }
+
+  public getId() {
+    return this.id;
+  }
 }
 
 @Component({
   selector: 'app-root',
   template: `
-  <div class="container">
-    <h1>{{title}}</h1>
-    <h2>{{hero.name}} details! </h2>
-    <div><label> id: </label> {{hero.id}} </div>
-    <div>
-      <label> name: </label>
-      <input [(ngModel)]="hero.name" placeholder="name">
+    <div class="container">
+      <h1>{{title}}</h1>
+      <h2>{{hero.name}} details! </h2>
+      <div><label> id: </label> {{hero.id}} </div>
+      <div>
+        <label> name: </label>
+        <input [(ngModel)]="hero.setName(name)" placeholder="name">
+      </div>
     </div>
-  </div>
   `,
   styleUrls: ['./app.component.css']
 })
 
 export class AppComponent {
-  public title = 'Tour of GHeroes';
-  public hero: Hero = {
-    id: 1,
-    name: 'Windstorm'
-  };
+  title = 'Tour of GHeroes';
+  hero : Hero;
+
+  cunstructor() {
+    this.hero = new Hero();
+    this.hero.setId(1);
+    this.hero.setName("Super hero");
+  }
 }
