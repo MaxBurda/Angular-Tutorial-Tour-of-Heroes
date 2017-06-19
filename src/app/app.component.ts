@@ -46,3 +46,4 @@ export class AppComponent {
     this.hero.setName("Super hero");
   }
 }
+//TODO разобрать эту хрень
